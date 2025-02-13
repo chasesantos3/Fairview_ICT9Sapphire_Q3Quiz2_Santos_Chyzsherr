@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>NIKI Concert Ticketing</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        #cover {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            border-radius: 10px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://i.pinimg.com/736x/cb/bc/72/cbbc72c1a615d6027f8d59cf7c6e3f98.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .ticket-gif {
+         display: block;
+         margin: 10px auto; 
+         width: 150px;
+}
+
+
+        #cover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+        }
+        #cover h1, #cover p, #cover button {
+            position: relative;
+            z-index: 2;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: auto;
+            border: 2px solid #8ac7ed;
+        }
+        button {
+            background-color: #8ac7ed;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #74b3da;
+        }
+        .ticket-image {
+            width: 100px; 
+            display: block;
+            margin: 10px auto; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cover">
+        <h1>🎤 NIKI Concert Ticketing 🎶</h1>
+        <p>Get ready to experience an unforgettable night!</p>
+        <button onclick="startTicketing()">Get Started</button>
+    </div>
+    
+    <div id="ticketing" class="container" style="display: none;">
+        <h5>Personal Information</h5>
+        <label>Full Name</label>
+        <input type="text" id="fullname" class="form-control" required>
+
+        <h5 class="mt-3">Ticket Pricing</h5>
+        <label>Seating</label>
+        <select class="form-select" id="seats">
+            <option value="3500">General Admission - ₱3,500</option>
+            <option value="6000">Front Row - ₱6,000</option>
+            <option value="9000">VIP - ₱9,000</option>
+        </select>
+
+        <button type="button" class="btn btn-outline-primary mt-3" onclick="showTicketDetails()">Buy</button>
+
+
+<img src="https://i.pinimg.com/originals/33/88/97/3388979ef74054d310c56d69c7a0201a.gif" alt="Ticket Animation" class="ticket-gif">
+
+
+        <details id="ticketDetails" style="display: none;">
+            <summary style="background-color: #8ac7ed;"> - Ticket - </summary>
+            <label>Email</label>
+            <input type="text" id="EM" class="form-control" required placeholder="exampleemail@email.com">
+            <img src="https://i.pinimg.com/736x/f2/3b/18/f23b183be3cd9a69061dd3f0ac6338e6.jpg" class="ticket-image">
+            <button type="submit" class="btn btn-outline-primary mt-3" onclick="purchaseTicket()">Buy</button>
+        </details>
+    </div>
+
+    <script>
+        function startTicketing() {
+            document.getElementById("cover").style.display = "none";
+            document.getElementById("ticketing").style.display = "block";
+        }
+
+        function showTicketDetails() {
+            document.getElementById("ticketDetails").style.display = "block";
+            alert("Ticket details expanded!");
+        }
+
+        function purchaseTicket() {
+            alert("Purchase successful!");
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
